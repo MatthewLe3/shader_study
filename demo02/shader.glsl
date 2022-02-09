@@ -47,7 +47,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     vec3 color = Grid(uv);
     
-    color += vec3(segment(uv, vec2(1.0, 2.0), vec2(-2.0, -2.0), fwidth(uv.x)));
+    vec3 line = vec3(segment(uv, vec2(1.0, 2.0), vec2(-2.0, -2.0), fwidth(uv.x)));
+
+    vec3 red = vec3(1.0,0.0,0.0);
+
+    color = mix(color,red,line);
 
     fragColor = vec4(color, 1.0);
 }
